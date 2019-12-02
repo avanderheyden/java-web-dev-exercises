@@ -1,6 +1,6 @@
 package org.launchcode.java.demos.lsn6inheritance;
 
-public class Cat {
+public abstract class Cat {
 
     private boolean tired = false;
     private boolean hungry = false;
@@ -43,6 +43,10 @@ public class Cat {
         return family;
     }
 
+    public Cat () {
+        weight = 13;
+    }
+
     /**** Instance Methods ****/
 
     // A cat is rested and hungry after it sleeps
@@ -62,7 +66,8 @@ public class Cat {
         hungry = false;
     }
 
-    public String noise () {
-        return "Meeeeeeooooowww!";
-    }
+//    public String noise () {
+//        return "Meeeeeeooooowww!";
+//    }
+    public abstract String noise();
 }

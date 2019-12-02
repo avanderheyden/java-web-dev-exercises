@@ -9,6 +9,7 @@ public class Car {
     private double milesPerGallon;
     private double odometer = 0;
 
+
     public Car(String make, String model, int gasTankSize, double milesPerGallon) {
         this.make = make;
         this.model = model;
@@ -16,6 +17,9 @@ public class Car {
         // Gas tank level defaults to a full tank
         this.gasTankLevel = gasTankSize;
         this.milesPerGallon = milesPerGallon;
+    }
+    public void addGas(double gas) {
+        this.setGasTankLevel(gas + this.getGasTankLevel());
     }
 
     public String getMake() {
@@ -47,8 +51,13 @@ public class Car {
     }
 
     public void setGasTankLevel(double gasTankLevel) {
-        this.gasTankLevel = gasTankLevel;
-    }
+
+        if (gasTankLevel> this.getGasTankSize()) {
+            throw new IllegalArgumentException("Can't exceed tank size");
+        }
+            this.gasTankLevel = gasTankLevel;
+        }
+
 
     public double getMilesPerGallon() {
         return milesPerGallon;
